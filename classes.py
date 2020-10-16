@@ -42,15 +42,18 @@ class Wall:
         # draw the wall
         return
 
-class Target:
-    def __init__(self):
-        # make the target
-        return
-
+class Goal:
+    def __init__(self, surface, x, y, r = 10, color = (0,0,0)):
+        self.pos = pygame.math.Vector2(x,y)
+        self.r = r
+        self.color = color
+        self.screen = surface
+    
     def draw(self):
-        #draw the target
-        return
-
-    def hit(self, ball):
-        #return True if the ball is touching the target
+        x = int(self.pos.x)
+        y = int(self.pos.y)
+        pygame.draw.circle(self.screen, self.color, (x,y), self.r)
+        
+    def hit(self,ball):
+        #I tried to add collision in the game file
         return
